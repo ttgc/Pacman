@@ -17,7 +17,6 @@ public class SuperPacdot : MonoBehaviour
             Destroy(gameObject);
             Score scoreScript = score.GetComponent<Score>();
             scoreScript.score += 25;
-            //co.gameObject.GetComponent<PacmanMove>().superPacman = true;
             foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ghost"))
             {
                 obj.GetComponent<GhostMove>().vulnerable = true;
