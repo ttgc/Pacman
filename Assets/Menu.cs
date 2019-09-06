@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
     // Loqd the next scene in build order
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
