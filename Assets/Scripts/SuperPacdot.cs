@@ -21,7 +21,8 @@ public class SuperPacdot : MonoBehaviour
             foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ghost"))
             {
                 obj.GetComponent<GhostMove>().vulnerable = true;
-                obj.GetComponent<SpriteRenderer>().sprite = new Sprite("vulnerable");
+                obj.GetComponent<SpriteRenderer>().sprite = obj.GetComponent<GhostMove>().vulnerableSpr;
+                obj.GetComponent<Animator>().enabled = false;
             }
         }
     }

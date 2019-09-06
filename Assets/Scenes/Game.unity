@@ -9454,6 +9454,8 @@ MonoBehaviour:
   - {fileID: 34331480}
   speed: 0.3
   vulnerable: 0
+  vulnerableSpr: {fileID: 3289760982041213867, guid: d46ed59daff4a834883b4b5d61babbb9,
+    type: 3}
 --- !u!50 &466565328
 Rigidbody2D:
   serializedVersion: 4
@@ -11298,6 +11300,8 @@ MonoBehaviour:
   - {fileID: 57472138}
   speed: 0.3
   vulnerable: 0
+  vulnerableSpr: {fileID: 3289760982041213867, guid: d46ed59daff4a834883b4b5d61babbb9,
+    type: 3}
 --- !u!50 &524302949
 Rigidbody2D:
   serializedVersion: 4
@@ -19981,6 +19985,8 @@ MonoBehaviour:
   - {fileID: 715341682}
   speed: 0.3
   vulnerable: 0
+  vulnerableSpr: {fileID: 3289760982041213867, guid: d46ed59daff4a834883b4b5d61babbb9,
+    type: 3}
 --- !u!50 &1016142394
 Rigidbody2D:
   serializedVersion: 4
@@ -28226,6 +28232,8 @@ MonoBehaviour:
   - {fileID: 1253140281}
   speed: 0.3
   vulnerable: 0
+  vulnerableSpr: {fileID: 3289760982041213867, guid: d46ed59daff4a834883b4b5d61babbb9,
+    type: 3}
 --- !u!1 &1387854873
 GameObject:
   m_ObjectHideFlags: 0

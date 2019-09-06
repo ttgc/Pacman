@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,12 +10,16 @@ public class GhostMove : MonoBehaviour
     int currentWaypoint = 0;
     Vector2 initialPosition;
     public bool vulnerable = false;
+    Sprite spr;
+    public Sprite vulnerableSpr;
+
 
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
-    }
+        spr = gameObject.GetComponent<SpriteRenderer>().sprite;
+        //gameObject.GetComponent<Animator>().
     }
 
     // Update is called once per frame
@@ -52,6 +56,8 @@ public class GhostMove : MonoBehaviour
             {
                 transform.position = initialPosition;
                 currentWaypoint = 0;
+                gameObject.GetComponent<SpriteRenderer>().sprite = spr;
+                GetComponent<Animator>().enabled = true;
                 vulnerable = false;
             }
             else
