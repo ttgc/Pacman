@@ -56,8 +56,14 @@ public class GhostMove : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().sprite = spr;
                 GetComponent<Animator>().enabled = true;
                 vulnerable = false;
+                resetTimer();
             }
         }
+    }
+
+    public void resetTimer()
+    {
+        timer = 0;
     }
 
     void OnTriggerEnter2D(Collider2D co)
@@ -71,6 +77,7 @@ public class GhostMove : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().sprite = spr;
                 GetComponent<Animator>().enabled = true;
                 vulnerable = false;
+                resetTimer();
             }
             else
             {

@@ -23,6 +23,7 @@ public class SuperPacdot : MonoBehaviour
                 obj.GetComponent<GhostMove>().vulnerable = true;
                 obj.GetComponent<SpriteRenderer>().sprite = obj.GetComponent<GhostMove>().vulnerableSpr;
                 obj.GetComponent<Animator>().enabled = false;
+                obj.GetComponent<GhostMove>().resetTimer();
             }
         }
     }
