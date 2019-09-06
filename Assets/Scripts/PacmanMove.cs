@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PacmanMove : MonoBehaviour
 {
@@ -70,6 +71,12 @@ public class PacmanMove : MonoBehaviour
         Vector2 dir = dest - (Vector2)transform.position;
         GetComponent<Animator>().SetFloat("DirX", dir.x);
         GetComponent<Animator>().SetFloat("DirY", dir.y);
+
+        // Check if level is finished
+        if (GameObject.Find("pacdot") == null)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 
     /*
