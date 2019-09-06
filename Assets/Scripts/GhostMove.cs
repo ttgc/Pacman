@@ -81,8 +81,25 @@ public class GhostMove : MonoBehaviour
             }
             else
             {
-                Destroy(co.gameObject);
-                SceneManager.LoadScene(2);
+                //Destroy(co.gameObject);
+                if (PacmanMove.health <= 0)
+                {
+                    SceneManager.LoadScene(2);
+                }
+                else
+                {
+                    PacmanMove.health--;
+                    foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ghost"))
+                    {
+                        obj.transform.position = obj.GetComponent<GhostMove>().initialPosition;
+                        obj.GetComponent<GhostMove>().currentWaypoint = 0;
+                        obj.gameObject.GetComponent<SpriteRenderer>().sprite = spr;
+                        obj.gameObject.GetComponent<Animator>().enabled = true;
+                        obj.GetComponent<GhostMove>().vulnerable = false;
+                        obj.GetComponent<GhostMove>().resetTimer();
+                    }
+                    co.gameObject.GetComponent<PacmanMove>().resetPosition();
+                }
             }
         }
     }
