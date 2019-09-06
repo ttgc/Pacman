@@ -75,7 +75,7 @@ public class GhostMove : MonoBehaviour
             else
             {
                 Destroy(co.gameObject);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene(2);
             }
         }
     }
