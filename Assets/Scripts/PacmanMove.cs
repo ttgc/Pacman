@@ -53,6 +53,6 @@ public class PacmanMove : MonoBehaviour
     {
         Vector2 pos = transform.position; // Pacman position
         RaycastHit2D hit = Physics2D.Linecast(pos + dir, pos); // Line between Pacman and target location
-        return (hit.collider == GetComponent<Collider2D>());
+        return (hit.collider == GetComponent<Collider2D>() || hit.collider.name == "pacdot");
     }
 }
