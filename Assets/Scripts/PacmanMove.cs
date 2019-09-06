@@ -7,17 +7,44 @@ public class PacmanMove : MonoBehaviour
 {
     public float speed = 0.25f;
     Vector2 dest = Vector2.zero;
+    public static int health;
+    public GameObject heart1, heart2, heart3;
+    Vector2 initialPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         dest = transform.position;
+        initialPosition = transform.position;
+        health = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        switch (health)
+        {
+            case 3:
+                heart1.gameObject.SetActive(true);
+                heart2.gameObject.SetActive(true);
+                heart3.gameObject.SetActive(true);
+                break;
+            case 2:
+                heart1.gameObject.SetActive(true);
+                heart2.gameObject.SetActive(true);
+                heart3.gameObject.SetActive(false);
+                break;
+            case 1:
+                heart1.gameObject.SetActive(true);
+                heart2.gameObject.SetActive(false);
+                heart3.gameObject.SetActive(false);
+                break;
+            case 0:
+                heart1.gameObject.SetActive(false);
+                heart2.gameObject.SetActive(false);
+                heart3.gameObject.SetActive(false);
+                break;
+        }
     }
 
     // FixedUpdate is called at fixed time interval
@@ -61,5 +88,15 @@ public class PacmanMove : MonoBehaviour
         Vector2 pos = transform.position; // Pacman position
         RaycastHit2D hit = Physics2D.Linecast(pos + dir, pos); // Line between Pacman and target location
         return (hit.collider == GetComponent<Collider2D>() || hit.collider.name == "pacdot");
+    }
+
+    void OnTriggerEnter2D(Collider2D co)
+    {
+    }
+
+    public void resetPosition()
+    {
+        transform.position = initialPosition;
+        dest = transform.position;
     }
 }
