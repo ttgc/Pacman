@@ -1,18 +1,21 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostMove : MonoBehaviour
 {
     public Transform[] waypoints;
     public float speed = 0.3f;
     int currentWaypoint = 0;
-
+    Vector2 initialPosition;
+    public bool vulnerable = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        initialPosition = transform.position;
+    }
     }
 
     // Update is called once per frame
@@ -44,6 +47,18 @@ public class GhostMove : MonoBehaviour
     void OnTriggerEnter2D(Collider2D co)
     {
         if (co.name == "pacman")
-            Destroy(co.gameObject);
+        {
+            if (vulnerable)
+            {
+                transform.position = initialPosition;
+                currentWaypoint = 0;
+                vulnerable = false;
+            }
+            else
+            {
+                Destroy(co.gameObject);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
     }
 }
