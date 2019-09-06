@@ -6,7 +6,7 @@ public class GhostMove : MonoBehaviour
 {
     public Transform[] waypoints;
     public float speed = 0.3f;
-    int currentWaypoint;
+    int currentWaypoint = 0;
 
 
     // Start is called before the first frame update
