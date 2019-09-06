@@ -12,7 +12,7 @@ public class GhostMove : MonoBehaviour
     public bool vulnerable = false;
     Sprite spr;
     public Sprite vulnerableSpr;
-
+    float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +46,18 @@ public class GhostMove : MonoBehaviour
         Vector2 dir = waypoints[currentWaypoint].position - transform.position;
         GetComponent<Animator>().SetFloat("DirX", dir.x);
         GetComponent<Animator>().SetFloat("DirY", dir.y);
+
+        // Disable vulnerability after 5s
+        if (vulnerable)
+        {
+            timer += Time.fixedDeltaTime;
+            if (timer > 5.0f)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = spr;
+                GetComponent<Animator>().enabled = true;
+                vulnerable = false;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D co)
